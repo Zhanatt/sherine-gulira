@@ -98,6 +98,7 @@ const RU = {
   hosts: 'Гулира',
   adTitle: 'Хотите такое же приглашение?',
   adText: 'Сделаю сайт-приглашение любой сложности — пишите:',
+  scrollHint: 'Листайте вниз', rsvpBtn: 'Ответить на приглашение',
   rsvp: 'Анкета', rsvpSub: 'Пожалуйста, подтвердите своё участие',
   nameLabel: 'Ваше имя и фамилия', namePh: 'Например: Асель Мамбетова',
   question: 'Если придёте с супругом(ой), укажите имена обоих',
@@ -161,7 +162,7 @@ function startReveal() {
   }
   const io = new IntersectionObserver(entries => entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-  }), { rootMargin: '0px 0px -8% 0px' });
+  }), { rootMargin: '0px' });
   items.forEach(el => io.observe(el));
 }
 
@@ -169,6 +170,15 @@ function startReveal() {
 (function envelope() {
   const env = document.querySelector('.envelope');
   const block = e => { if (env.dataset.open === 'false') e.preventDefault(); };
+  // конверт открывается не только нажатием: колёсиком вниз и свайпом вверх тоже
+  const wheelOpen = e => { if (e.deltaY > 8) open(); };
+  let startY = null;
+  const touchStart = e => { startY = e.touches[0].clientY; };
+  const touchMove = e => { if (startY !== null && startY - e.touches[0].clientY > 40) { startY = null; open(); } };
+  // печать покачивается, если 3 с ничего не нажали, и потом каждые 6 с
+  const seal = env.querySelector('.seal');
+  const nudge = () => { seal.classList.remove('nudge'); void seal.offsetWidth; seal.classList.add('nudge'); };
+  const nudgeTimer = setTimeout(function n() { if (env.dataset.open === 'false') { nudge(); setTimeout(n, 6000); } }, 3000);
   const keys = e => {
     if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'Home', 'End'].includes(e.key) && env.dataset.open === 'false') {
       e.preventDefault();
@@ -184,12 +194,19 @@ function startReveal() {
     removeEventListener('wheel', block);
     removeEventListener('touchmove', block);
     removeEventListener('keydown', keys);
+    removeEventListener('wheel', wheelOpen);
+    removeEventListener('touchstart', touchStart);
+    removeEventListener('touchmove', touchMove);
+    clearTimeout(nudgeTimer);
     scrollTo(0, 0);
     setTimeout(startReveal, 700); // пока расходятся половинки конверта
   }
   addEventListener('wheel', block, { passive: false });
   addEventListener('touchmove', block, { passive: false });
   addEventListener('keydown', keys);
+  addEventListener('wheel', wheelOpen, { passive: true });
+  addEventListener('touchstart', touchStart, { passive: true });
+  addEventListener('touchmove', touchMove, { passive: true });
   env.addEventListener('click', open);
   env.focus({ preventScroll: true });
 })();
@@ -362,3 +379,27 @@ function startReveal() {
   window.ringLang(LANG);
 })();
 document.querySelector('.envelope').addEventListener('click', () => window.ringSpin && window.ringSpin());
+
+/* ===== Прогресс прокрутки и плавающая кнопка «Жооп берүү» ===== */
+(function scrollHelpers() {
+  const bar = document.querySelector('.progress span');
+  const btn = document.querySelector('.rsvp-float');
+  const rsvp = document.getElementById('rsvp');
+  let raf = 0;
+  function update() {
+    raf = 0;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${max > 0 ? Math.min(1, scrollY / max) : 0})`;
+    const answered = !rsvp.querySelector('form');
+    const rsvpReached = rsvp.getBoundingClientRect().top < innerHeight * .9;
+    btn.classList.toggle('show', !document.body.classList.contains('locked') && scrollY > innerHeight * .5 && !rsvpReached && !answered);
+  }
+  const kick = () => { if (!raf) raf = requestAnimationFrame(update); };
+  addEventListener('scroll', kick, { passive: true });
+  addEventListener('resize', kick);
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    rsvp.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  });
+  update();
+})();

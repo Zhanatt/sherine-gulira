@@ -15,13 +15,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261109a">
+  <link rel="stylesheet" href="style.css?v=20261109b">
 </head>
 <body class="locked">
 <div class="lang" role="group" aria-label="Тил / Язык">
   <button type="button" data-lang="ky" aria-pressed="true">КЫР</button>
   <button type="button" data-lang="ru" aria-pressed="false">РУС</button>
 </div>
+
+<div class="progress" aria-hidden="true"><span></span></div>
 
 <main class="page">
 
@@ -37,6 +39,10 @@
         <span data-i18n="hostLoc">Гулирада</span>
       </h1>
       <p class="hero-date" data-anim>21 · 11 · 2026</p>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      <span data-i18n="scrollHint">Ылдый жылдырыңыз</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/><path d="M6 4l6 6 6-6" opacity=".45"/></svg>
     </div>
     <div class="silk silk-bottom" aria-hidden="true"></div>
   </section>
@@ -165,6 +171,9 @@
   <p class="sr-only">Гулирадагы шерине, 21.11.2026, саат 18:00, «Ак-Өргө» кафеси, Бишкек</p>
 </main>
 
+<!-- ===== Плавающая кнопка «Жооп берүү»: видна, пока анкета ниже экрана ===== -->
+<a class="rsvp-float" href="#rsvp" data-i18n="rsvpBtn">Жооп берүү</a>
+
 <!-- ===== Конверт: ленты крест-накрест и сургучная печать ===== -->
 <button type="button" class="envelope" data-open="false" aria-label="Ачуу үчүн басыңыз" data-i18n-attr="aria-label:open">
   <span class="env-half env-top"></span>
@@ -191,12 +200,17 @@
     </svg>
     <span class="seal-text">Г</span>
   </span>
+  <!-- рука-подсказка «нажмите» (Tabler hand-finger, MIT) -->
+  <span class="tap-hand" aria-hidden="true">
+    <span class="tap-ripple"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13v-8.5a1.5 1.5 0 0 1 3 0v7.5"/><path d="M11 11.5v-2a1.5 1.5 0 1 1 3 0v2.5"/><path d="M14 10.5a1.5 1.5 0 0 1 3 0v1.5"/><path d="M17 11.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1 -6 6h-2h.208a6 6 0 0 1 -5.012 -2.7l-.196 -.3c-.312 -.479 -1.407 -2.388 -3.286 -5.728a1.5 1.5 0 0 1 .536 -2.022a1.867 1.867 0 0 1 2.28 .28l1.47 1.47"/></svg>
+  </span>
   <span class="env-bottom-text">
     <span class="env-names">Гулира</span>
     <span class="env-hint" data-i18n="open">Ачуу үчүн басыңыз</span>
   </span>
 </button>
 
-<script src="app.js?v=20261109a"></script>
+<script src="app.js?v=20261109b"></script>
 </body>
 </html>
