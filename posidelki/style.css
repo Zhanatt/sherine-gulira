@@ -504,3 +504,33 @@ li.wide .si-img { width: 130px; height: 70px; }
   .spin { animation: none !important; }
   .still .it { transition: none !important; opacity: 1 !important; translate: none !important; }
 }
+
+/* ===================== ШРИФТЫ в духе референсов =====================
+   Marvin Visions → Montserrat Alternates (округлый геометричный, 70-е);
+   Molot → Oswald (узкий плотный). У референсов нет кыргызских Ң Ө Ү, у этих — есть. */
+:root {
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
+  --font-script: "Montserrat Alternates", "Montserrat", Arial, sans-serif;
+}
+.script-title, .names, .date-names, .hosts-names, .footer-names, .env-names, .env-script, .venue-name, .dt-head, .promo-title {
+  font-family: var(--font-script); font-style: normal; font-weight: 800; text-transform: uppercase; letter-spacing: .01em; line-height: 1.05;
+}
+.script-title { font-size: 28px; text-wrap: balance; }
+.names { font-size: 46px; font-weight: 900; }
+.names .amp { font-family: "Oswald", sans-serif; font-weight: 500; font-size: 20px; letter-spacing: .28em; color: var(--champagne-2); }
+.date-names { font-size: 30px; font-weight: 900; }
+.date-sub, .lead, .si-text, .bismillah { font-family: "Oswald", sans-serif; font-style: normal; font-weight: 400; letter-spacing: .04em; }
+.date-sub { text-transform: uppercase; letter-spacing: .3em; font-size: 15px; }
+.lead { font-size: 20px; text-transform: uppercase; letter-spacing: .06em; line-height: 1.3; }
+.si-text { font-size: 15px; text-transform: uppercase; letter-spacing: .08em; }
+.si-time, .timer-value, .date-line, .cal-day, .hero-date { font-family: "Oswald", sans-serif; font-weight: 500; }
+.venue-name { font-size: 26px; }
+.dt-head { font-size: 16px; }
+.hosts-names { font-size: 34px; font-weight: 900; }
+.footer-names { font-size: 22px; }
+.env-kicker { font-family: "Montserrat Alternates", sans-serif; font-weight: 900; text-transform: uppercase; font-size: 38px; }
+.env-script { font-size: 20px; font-weight: 600; text-transform: lowercase; }
+.env-names { font-size: 26px; font-weight: 900; }
+.seal-text { font-family: "Montserrat Alternates", sans-serif; font-style: normal; font-weight: 900; font-size: 30px; }
+.eyebrow, .hosts-by, .date-day, .timer-unit { font-family: "Oswald", sans-serif; font-weight: 500; }
+@media (max-width: 360px) { .names { font-size: 38px; } .script-title { font-size: 24px; } }
