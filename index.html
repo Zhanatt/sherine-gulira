@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ky" translate="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#4a1230">
+  <meta name="robots" content="noindex">
+  <title>Гулирадагы шерине — чакыруу</title>
+  <meta name="description" content="21-ноябрь, 2026 • 18:00 • «Ак-Өргө» кафеси, Бишкек">
+  <meta property="og:title" content="Гулирадагы шерине — чакыруу">
+  <meta property="og:description" content="21-ноябрь, 2026 • 18:00 • «Ак-Өргө» кафеси, Бишкек">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ky_KG">
+  <link rel="icon" href="img/heart.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20261109a">
+</head>
+<body class="locked">
+<div class="lang" role="group" aria-label="Тил / Язык">
+  <button type="button" data-lang="ky" aria-pressed="true">КЫР</button>
+  <button type="button" data-lang="ru" aria-pressed="false">РУС</button>
+</div>
+
+<main class="page">
+
+  <!-- ===== 1. Обложка: круг участников, очередь — у Гулиры ===== -->
+  <section class="hero">
+    <div class="hero-top">
+      <p class="eyebrow" data-anim data-i18n="kicker">Шеринеге чакыруу</p>
+    </div>
+    <div class="ring" id="ring" data-anim></div>
+    <div class="hero-bottom">
+      <h1 class="names" data-anim>
+        <span class="amp" data-i18n="turnIs">бул жолу кезек</span>
+        <span data-i18n="hostLoc">Гулирада</span>
+      </h1>
+      <p class="hero-date" data-anim>21 · 11 · 2026</p>
+    </div>
+    <div class="silk silk-bottom" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===== 2. Обращение ===== -->
+  <section class="block greet" data-anim>
+    <h2 class="script-title" data-i18n="dearTitle">Урматтуу шерине мүчөлөрү!</h2>
+    <p class="lead" data-i18n="dear">Кезектеги жолугушуубуз жакындап калды!</p>
+    <p class="text" data-i18n="invite">Бул жолу кезек Гулирада. Сиздерди жылуу кечеге жана берекелүү ак дасторконго чакырабыз.</p>
+  </section>
+
+  <!-- ===== 3. Дата: открытка-календарь ===== -->
+  <section class="date-card" data-anim>
+    <p class="date-names">Гулира</p>
+    <p class="date-sub" data-i18n="getting">шерине</p>
+    <div class="cal" id="cal"></div>
+    <p class="date-line"><span data-i18n="dateLine">21-ноябрь, 2026-жыл</span> <span class="sep">|</span> 18:00</p>
+    <p class="date-day" data-i18n="weekday">Ишемби</p>
+  </section>
+
+  <!-- ===== 4. Таймер ===== -->
+  <section class="block countdown" data-anim>
+    <p class="eyebrow" data-i18n="until">Шеринеге чейин</p>
+    <div class="timer" id="countdown" role="timer">
+      <div class="timer-cell"><span class="timer-value" data-unit="d">00</span><span class="timer-unit" data-i18n="uD">күн</span></div>
+      <div class="timer-cell"><span class="timer-value" data-unit="h">00</span><span class="timer-unit" data-i18n="uH">саат</span></div>
+      <div class="timer-cell"><span class="timer-value" data-unit="m">00</span><span class="timer-unit" data-i18n="uM">мүнөт</span></div>
+      <div class="timer-cell"><span class="timer-value" data-unit="s">00</span><span class="timer-unit" data-i18n="uS">секунд</span></div>
+    </div>
+  </section>
+
+  <!-- ===== 5. Программа: змейка ===== -->
+  <section class="timing" id="timing">
+    <h2 class="script-title" data-anim data-i18n="timing">Кечтин тартиби</h2>
+    <div class="snake" id="snake">
+      <svg class="snake-svg" aria-hidden="true"><path class="snake-base"/><path class="snake-line" pathLength="1"/></svg>
+      <div class="rose ico" aria-hidden="true" data-ico="heart"></div>
+      <ol class="snake-items">
+        <li data-icon="welcome"><span class="si-time">18:00</span><span class="si-text" data-i18n="t1">Коноктордун чогулушу</span></li>
+        <li data-icon="dinner"><span class="si-time">18:30</span><span class="si-text" data-i18n="t2">Ак дасторкон</span></li>
+        <li data-icon="music"><span class="si-time">20:00</span><span class="si-text" data-i18n="t3">Ыр жана оюн-зоок</span></li>
+        <li data-icon="night"><span class="si-time">22:00</span><span class="si-text" data-i18n="t5">Кечтин аякташы</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== 6. Место ===== -->
+  <section class="block venue" data-anim>
+    <h2 class="script-title" data-i18n="venue">Өтүүчү жери</h2>
+    <span class="building ico" data-ico="venue"></span>
+    <h3 class="venue-name" data-i18n="venueName">«Ак-Өргө» кафеси</h3>
+    <p class="venue-address" data-i18n="address">Бишкек шаары, Чүй проспекти, 150</p>
+    <a class="pill-btn" href="https://2gis.kg/bishkek" target="_blank" rel="noopener noreferrer"><span data-i18n="map">Картадан көрүү</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+  </section>
+
+  <!-- ===== 7. Детали ===== -->
+  <section class="details" data-anim>
+    <div class="details-bg" aria-hidden="true"></div>
+    <span class="orn orn-horns" aria-hidden="true"></span>
+    <h2 class="script-title" data-i18n="details">Кошумча маалымат</h2>
+    <ol class="details-list">
+      <li>
+        <span class="dn ico" data-ico="gift"></span>
+        <div class="dt">
+          <p class="dt-head"><span class="dt-num">01</span> <span data-i18n="d1h">Белек</span></p>
+          <p data-i18n="d1">Белек милдеттүү эмес. Эң негизгиси, өзүңүздүн келишиңиз жана жакшы маанайыңыз.</p>
+        </div>
+      </li>
+      <li>
+        <span class="dn ico" data-ico="welcome"></span>
+        <div class="dt">
+          <p class="dt-head"><span class="dt-num">02</span> <span data-i18n="d2h">Кийинки кезек</span></p>
+          <p data-i18n="d2">Кечтин аягында кийинки шерине кимде өтөрүн чогуу чечебиз.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===== 8. Пожелание и подпись ===== -->
+  <section class="block hosts" data-anim>
+    <span class="orn orn-horns" aria-hidden="true"></span>
+    <p class="text" data-i18n="wish">Жылуу маанайда отуруп, кенен сүйлөшүп, ынтымагыбызды дагы бекемдейли.</p>
+    <p class="hosts-by" data-i18n="regards">Урматтоо менен,</p>
+    <p class="hosts-names" data-i18n="hosts">Гулира</p>
+  </section>
+
+  <!-- ===== 9. Анкета ===== -->
+  <section class="rsvp" id="rsvp" data-anim>
+    <form class="form" novalidate>
+      <div class="form-head">
+        <h2 class="script-title" data-i18n="rsvp">Сурамжылоо</h2>
+        <p data-i18n="rsvpSub">Шеринеге катышарыңызды билдирип коюңуз</p>
+      </div>
+      <label class="form-field"><span data-i18n="nameLabel">Аты-жөнүңүз</span>
+        <input class="form-input" id="rsvp-name" type="text" name="name" autocomplete="name" placeholder="Мисалы: Асел Мамбетова" data-i18n-attr="placeholder:namePh" required>
+      </label>
+      <p class="form-question" id="rsvp-question" data-i18n="question">Жубайыңыз менен келсеңиз, экөөңүздүн тең аты-жөнүңүздү жазыңыз</p>
+      <fieldset class="form-options" aria-labelledby="rsvp-question">
+        <label class="form-option"><input type="radio" name="answer" value="Албетте, келем" required><span class="form-dot"></span><span data-i18n="a1">Албетте, келем</span></label>
+        <label class="form-option"><input type="radio" name="answer" value="Жубайым менен келем"><span class="form-dot"></span><span data-i18n="a2">Жубайым менен келем</span></label>
+        <label class="form-option"><input type="radio" name="answer" value="Келе албайм"><span class="form-dot"></span><span data-i18n="a3">Келе албайм</span></label>
+      </fieldset>
+      <button class="form-submit" type="submit" data-i18n="submit">Жоопту жөнөтүү</button>
+      <p class="form-note" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section class="block finale" data-anim>
+    <span class="orn orn-band" aria-hidden="true"></span>
+    <p class="footer-names">Ынтымагыбыз бекем болсун!</p>
+    <p class="eyebrow">21 · 11 · 2026</p>
+  </section>
+
+  <!-- ===== Реклама: заказать такое же приглашение ===== -->
+  <aside class="promo" data-anim>
+    <p class="promo-title" data-i18n="adTitle">Ушундай чакыруу керекпи?</p>
+    <p class="promo-text" data-i18n="adText">Каалаган татаалдыктагы сайт-чакырууларды жасайм — жазыңыз:</p>
+    <div class="promo-btns">
+      <a class="promo-btn" href="https://wa.me/996703170304" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"/><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"/></svg>WhatsApp</a>
+    </div>
+    <p class="promo-phone">+996 703 170 304</p>
+  </aside>
+
+  <p class="sr-only">Гулирадагы шерине, 21.11.2026, саат 18:00, «Ак-Өргө» кафеси, Бишкек</p>
+</main>
+
+<!-- ===== Конверт: ленты крест-накрест и сургучная печать ===== -->
+<button type="button" class="envelope" data-open="false" aria-label="Ачуу үчүн басыңыз" data-i18n-attr="aria-label:open">
+  <span class="env-half env-top"></span>
+  <span class="env-half env-bottom"></span>
+  <span class="ribbon ribbon-a"></span>
+  <span class="ribbon ribbon-b"></span>
+  <span class="env-title">
+    <span class="env-kicker" data-i18n="envKicker">Шеринеге</span>
+    <span class="env-script" data-i18n="envScript">чакыруу</span>
+  </span>
+  <span class="seal" aria-hidden="true">
+    <svg viewBox="0 0 120 120">
+      <defs>
+        <radialGradient id="wax" cx="38%" cy="32%" r="75%">
+          <stop offset="0" stop-color="#f6dc96"/><stop offset=".45" stop-color="#d2a650"/><stop offset="1" stop-color="#8a5f1c"/>
+        </radialGradient>
+        <radialGradient id="waxIn" cx="60%" cy="65%" r="70%">
+          <stop offset="0" stop-color="#e7c272"/><stop offset="1" stop-color="#a87a2c"/>
+        </radialGradient>
+      </defs>
+      <path d="M60 4c9 0 12 6 20 8s15-1 20 6 1 13 5 20 10 9 10 18-6 11-8 19 3 15-4 21-13 1-20 5-9 11-19 11-11-6-19-8-15 2-21-5-1-13-5-20-11-9-11-19 7-11 8-19-3-14 4-20 13-1 20-5 11-12 20-12z" fill="url(#wax)"/>
+      <circle cx="60" cy="60" r="37" fill="url(#waxIn)" stroke="#8a5f1c" stroke-opacity=".55" stroke-width="1.5"/>
+      <circle cx="60" cy="60" r="31" fill="none" stroke="#fbe7b0" stroke-opacity=".5" stroke-width=".8"/>
+    </svg>
+    <span class="seal-text">Г</span>
+  </span>
+  <span class="env-bottom-text">
+    <span class="env-names">Гулира</span>
+    <span class="env-hint" data-i18n="open">Ачуу үчүн басыңыз</span>
+  </span>
+</button>
+
+<script src="app.js?v=20261109a"></script>
+</body>
+</html>
